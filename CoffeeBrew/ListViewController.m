@@ -16,6 +16,7 @@
 
 @property CLLocationManager *locationManager;
 @property CLLocation *currentLocation;
+@property NSArray *coffeePlacesArray;
 
 
 @end
@@ -64,7 +65,15 @@
             
             [tempArray addObject:coffeePlace];
             
-            NSLog(@"%@", coffeePlace.mapItem.name);
+        }
+        
+        NSSortDescriptor *sortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"milesDifference" ascending:true];
+        NSArray *sortedArray = [tempArray sortedArrayUsingDescriptors:@[sortDescriptor]];
+        
+        self.coffeePlacesArray = [NSArray arrayWithArray:sortedArray];
+        
+        for (CoffeePlace *coffeePlace in self.coffeePlacesArray) {
+            NSLog(@"%f", coffeePlace.milesDifference);
         }
         
     }];

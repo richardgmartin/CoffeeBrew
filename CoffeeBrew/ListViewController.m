@@ -12,12 +12,13 @@
 #import "CoffeePlace.h"
 
 
-@interface ListViewController () <CLLocationManagerDelegate>
+@interface ListViewController () <CLLocationManagerDelegate, UITableViewDelegate, UITableViewDataSource>
 
 @property CLLocationManager *locationManager;
 @property CLLocation *currentLocation;
 @property NSArray *coffeePlacesArray;
 
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @end
 
@@ -72,9 +73,7 @@
         
         self.coffeePlacesArray = [NSArray arrayWithArray:sortedArray];
         
-        for (CoffeePlace *coffeePlace in self.coffeePlacesArray) {
-            NSLog(@"%f", coffeePlace.milesDifference);
-        }
+        [self.tableView reloadData];
         
     }];
     
@@ -87,6 +86,21 @@
     [self.locationManager stopUpdatingLocation];
     
     [self findCoffeeLocations:self.currentLocation];
+    
+}
+
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return self.coffeePlacesArray.count;
+}
+
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CellID"];
+    
+    cell.textLabel.text = [[[self.coffeePlacesArray objectAtIndex:indexPath.row] mapItem] name];
+    
+    
+    return cell;
     
 }
 

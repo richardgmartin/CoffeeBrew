@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -26,21 +27,24 @@
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="EYc-uN-lVo" id="BLT-gD-8e6">
+                                            <rect key="frame" x="0.0" y="0.0" width="240" height="79"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="WgJ-3l-VwX">
+                                                    <rect key="frame" x="15" y="19" width="34" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                     <variation key="widthClass=compact">
                                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     </variation>
                                                 </label>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="QRx-MJ-TOJ">
+                                                    <rect key="frame" x="15" y="40" width="59" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                     <variation key="widthClass=compact">
                                                         <fontDescription key="fontDescription" type="system" pointSize="11"/>
@@ -48,6 +52,9 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="OtE-cd-K8k" kind="show" id="ysm-OU-zM7"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
@@ -68,10 +75,10 @@
                                 <exclude reference="ido-4s-g0f"/>
                             </mask>
                             <mask key="constraints">
+                                <exclude reference="8Zs-YR-Uok"/>
                                 <exclude reference="Y4d-xO-8NF"/>
                                 <exclude reference="Zjg-OM-4gC"/>
                                 <exclude reference="vMa-Ib-st1"/>
-                                <exclude reference="8Zs-YR-Uok"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -79,10 +86,10 @@
                                 <include reference="ido-4s-g0f"/>
                             </mask>
                             <mask key="constraints">
+                                <include reference="8Zs-YR-Uok"/>
                                 <include reference="Y4d-xO-8NF"/>
                                 <include reference="Zjg-OM-4gC"/>
                                 <include reference="vMa-Ib-st1"/>
-                                <include reference="8Zs-YR-Uok"/>
                             </mask>
                         </variation>
                     </view>
@@ -94,6 +101,62 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1293" y="238"/>
+        </scene>
+        <!--Detail View Controller-->
+        <scene sceneID="szJ-0U-L9N">
+            <objects>
+                <viewController id="OtE-cd-K8k" customClass="DetailViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="0Of-Y5-ki0"/>
+                        <viewControllerLayoutGuide type="bottom" id="nyA-bu-aSr"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="ufl-wS-8uP">
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Directions" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="CF4-AA-8Wf">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="CF4-AA-8Wf" firstAttribute="leading" secondItem="ufl-wS-8uP" secondAttribute="leadingMargin" constant="-20" id="5zN-6H-hVp"/>
+                            <constraint firstItem="CF4-AA-8Wf" firstAttribute="top" secondItem="0Of-Y5-ki0" secondAttribute="bottom" id="YuE-if-Rar"/>
+                            <constraint firstItem="nyA-bu-aSr" firstAttribute="top" secondItem="CF4-AA-8Wf" secondAttribute="bottom" id="kaB-it-oKc"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="CF4-AA-8Wf" secondAttribute="trailing" constant="-20" id="v6L-to-5N6"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="CF4-AA-8Wf"/>
+                            </mask>
+                            <mask key="constraints">
+                                <exclude reference="5zN-6H-hVp"/>
+                                <exclude reference="YuE-if-Rar"/>
+                                <exclude reference="v6L-to-5N6"/>
+                                <exclude reference="kaB-it-oKc"/>
+                            </mask>
+                        </variation>
+                        <variation key="widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="CF4-AA-8Wf"/>
+                            </mask>
+                            <mask key="constraints">
+                                <include reference="5zN-6H-hVp"/>
+                                <include reference="YuE-if-Rar"/>
+                                <include reference="v6L-to-5N6"/>
+                                <include reference="kaB-it-oKc"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <connections>
+                        <outlet property="textView" destination="CF4-AA-8Wf" id="gO3-hh-wZX"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="flj-gk-4un" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1998" y="238"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="JXz-vh-YJc">
